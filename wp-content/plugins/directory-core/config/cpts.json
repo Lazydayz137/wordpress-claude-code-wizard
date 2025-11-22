@@ -1,0 +1,18 @@
+{
+    "company": {
+        "singular": "Company",
+        "plural": "Companies",
+        "slug": "companies",
+        "icon": "dashicons-building",
+        "supports": ["title", "editor", "thumbnail", "excerpt", "custom-fields"],
+        "taxonomies": ["industry", "location"]
+    },
+    "review": {
+        "singular": "Review",
+        "plural": "Reviews",
+        "slug": "reviews",
+        "icon": "dashicons-star-filled",
+        "supports": ["title", "editor", "custom-fields"],
+        "taxonomies": []
+    }
+}

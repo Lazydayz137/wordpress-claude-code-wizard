@@ -15,6 +15,7 @@ services:
       - ./wp-content:/var/www/html/wp-content
       - ./wp-config.php:/var/www/html/wp-config.php
       - ./.htaccess:/var/www/html/.htaccess
+      - ./_vault:/var/www/html/_vault
     depends_on:
       - mysql
     networks:

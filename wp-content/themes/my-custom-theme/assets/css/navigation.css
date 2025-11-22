@@ -1,0 +1,118 @@
+/* Navigation Styles */
+
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-navigation>ul>li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Mega Menu Dropdown */
+.menu-item-has-children:hover>.sub-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 999;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.sub-menu a {
+    color: var(--text-color);
+    padding: 8px 20px;
+}
+
+.sub-menu a:hover {
+    background: var(--light-gray);
+    color: var(--primary-color);
+}
+
+/* Mega Menu Full Width (Optional Class) */
+.mega-menu {
+    position: static !important;
+}
+
+.mega-menu .sub-menu {
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.mega-menu .sub-menu>li {
+    width: 25%;
+    /* 4 Columns */
+    padding: 0 15px;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation ul {
+        display: none;
+        flex-direction: column;
+        background: var(--primary-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
+    .main-navigation.toggled ul {
+        display: flex;
+    }
+
+    .main-navigation>ul>li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sub-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .main-navigation .sub-menu a {
+        color: white;
+        padding-left: 30px;
+    }
+}

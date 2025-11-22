@@ -38,3 +38,6 @@ wp-content/debug.log
 *.tmp
 *.bak
 *.backup
+
+# Vault Assets
+_vault/
