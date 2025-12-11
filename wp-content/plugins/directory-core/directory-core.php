@@ -37,7 +37,7 @@ function directory_core_init()
     new CPT_Registrar();
     new Taxonomy_Registrar();
     new Review_Manager();
-    new Contact_Form(); // Contact Form Shortcode
+    Contact_Form_Manager::init(); // Contact Form Shortcode (static init)
     new Data_Fetcher(); // Automated Data Acquisition
     new Monetization_Manager(); // Phase 8: Revenue
 
