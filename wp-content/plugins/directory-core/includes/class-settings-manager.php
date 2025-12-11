@@ -40,42 +40,23 @@ class Settings_Manager
 
         $review_singular = isset($options['review_singular']) ? $options['review_singular'] : 'Review';
         $review_plural = isset($options['review_plural']) ? $options['review_plural'] : 'Reviews';
-        $review_slug = isset($options['review_slug']) ? $options['review_slug'] : 'review';
+        // The old $options variable is no longer needed as we use get_option directly for each field.
+        // $options = get_option('directory_cpt_labels', array());
+
+        // Defaults are now handled directly in get_option calls in the HTML.
         ?>
         <div class="wrap">
             <h1>Directory Settings</h1>
             <p>Customize the labels and slugs for your directory listings.</p>
 
             <form method="post" action="options.php">
-                <?php settings_fields('directory_settings_group'); ?>
-                <?php do_settings_sections('directory_settings_group'); ?>
+                <?php 
+                settings_fields('directory_cpt_settings'); 
+                settings_fields('directory_monetization'); // Register this group
+                do_settings_sections('directory-settings'); 
+                ?>
 
                 <table class="form-table">
-                    <tr valign="top">
-                        <th scope="row" colspan="2">
-                            <h2>Listing Type (Main)</h2>
-                        </th>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">Singular Name</th>
-                        <td><input type="text" name="directory_cpt_labels[company_singular]"
-                                value="<?php echo esc_attr($company_singular); ?>" /></td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">Plural Name</th>
-                        <td><input type="text" name="directory_cpt_labels[company_plural]"
-                                value="<?php echo esc_attr($company_plural); ?>" /></td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">URL Slug</th>
-                        <td>
-                            <input type="text" name="directory_cpt_labels[company_slug]"
-                                value="<?php echo esc_attr($company_slug); ?>" />
-                            <p class="description">Requires re-saving Permalinks after change.</p>
-                        </td>
-                    </tr>
-
-                    <tr valign="top">
                         <th scope="row" colspan="2">
                             <hr>
                             <h2>Review Type</h2>

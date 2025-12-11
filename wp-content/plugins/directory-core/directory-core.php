@@ -27,21 +27,24 @@ require_once DIRECTORY_CORE_PATH . 'includes/class-data-importer.php';
 
 require_once DIRECTORY_CORE_PATH . 'includes/class-contact-form.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-settings-manager.php';
-require_once DIRECTORY_CORE_PATH . 'includes/class-data-fetcher.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-data-fetcher.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-monetization.php';
 
-// Initialize
+// Initialize Plugin
 function directory_core_init()
 {
     new CPT_Registrar();
+    new Taxonomy_Registrar();
     new Review_Manager();
-    new Vault_Manager();
-    new Demo_Importer();
-    new Claim_Manager();
-    new Dashboard_Manager();
-    new Data_Importer();
-    Contact_Form_Manager::init();
-    new Settings_Manager();
-    new Data_Fetcher();
+    new Contact_Form(); // Contact Form Shortcode
+    new Data_Fetcher(); // Automated Data Acquisition
+    new Monetization_Manager(); // Phase 8: Revenue
+
+    // Admin only
+    if (is_admin()) {
+        new Settings_Manager();
+        new Data_Importer();
+    }
 }
 add_action('plugins_loaded', 'directory_core_init');
 
