@@ -6,8 +6,6 @@
  * Implements "Best [Category] in [Location]" logic.
  */
 
-get_header();
-
 $location = get_queried_object();
 $location_name = $location->name;
 
@@ -15,8 +13,18 @@ $location_name = $location->name;
 $industry_filter = get_query_var('industry');
 $industry_name = $industry_filter ? ucfirst($industry_filter) : 'Companies';
 
-// SEO Title Logic
+// SEO Logic
+add_filter('document_title_parts', function ($title) use ($location_name, $industry_name) {
+    $title['title'] = sprintf(__('Best %s in %s - Reviews & Pricing', 'my-custom-theme'), $industry_name, $location_name);
+    return $title;
+});
+
+
+
+// SEO Title Logic (for H1)
 $page_title = sprintf(__('Best %s in %s', 'my-custom-theme'), $industry_name, $location_name);
+
+get_header();
 ?>
 
 <main class="site-main">
@@ -27,6 +35,22 @@ $page_title = sprintf(__('Best %s in %s', 'my-custom-theme'), $industry_name, $l
                 <?php echo wp_kses_post(term_description()); ?>
             </div>
         </header>
+
+        <div class="directory-toolbar" style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
+            <form class="directory-sort" method="get">
+                <select name="orderby" onchange="this.form.submit()">
+                    <option value="date" <?php selected(get_query_var('orderby'), 'date'); ?>>
+                        <?php _e('Newest', 'my-custom-theme'); ?>
+                    </option>
+                    <option value="title" <?php selected(get_query_var('orderby'), 'title'); ?>>
+                        <?php _e('Name (A-Z)', 'my-custom-theme'); ?>
+                    </option>
+                    <option value="rating" <?php selected(get_query_var('orderby'), 'meta_value_num'); ?>>
+                        <?php _e('Highest Rated', 'my-custom-theme'); ?>
+                    </option>
+                </select>
+            </form>
+        </div>
 
         <?php if (have_posts()): ?>
             <div class="directory-grid">

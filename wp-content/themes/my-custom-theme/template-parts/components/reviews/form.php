@@ -17,7 +17,7 @@ $listing_id = get_the_ID();
 <div class="review-form-container">
     <h3><?php _e('Leave a Review', 'my-custom-theme'); ?></h3>
 
-    <form action="" method="post" class="review-form">
+    <form action="" method="post" class="review-form" enctype="multipart/form-data">
         <?php wp_nonce_field('submit_review', 'directory_review_nonce'); ?>
         <input type="hidden" name="listing_id" value="<?php echo esc_attr($listing_id); ?>">
 
@@ -40,6 +40,18 @@ $listing_id = get_the_ID();
         <div class="form-group">
             <label for="review_content"><?php _e('Review', 'my-custom-theme'); ?></label>
             <textarea name="review_content" id="review_content" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="review_photo"><?php _e('Photo (Optional)', 'my-custom-theme'); ?></label>
+            <input type="file" name="review_photo" id="review_photo" accept="image/*">
+        </div>
+
+        <div class="form-group checkbox-group">
+            <label>
+                <input type="checkbox" name="verified_purchase" value="1">
+                <?php _e('I have used this product/service', 'my-custom-theme'); ?>
+            </label>
         </div>
 
         <button type="submit" class="btn btn-primary"><?php _e('Submit Review', 'my-custom-theme'); ?></button>

@@ -45,18 +45,41 @@ class CPT_Registrar
 
     private function register_single_cpt($key, $data)
     {
+        // Fetch User Overrides
+        $options = get_option('directory_cpt_labels', array());
+
+        $singular = $data['singular'];
+        $plural = $data['plural'];
+        $slug = $data['slug'];
+
+        if ($key === 'company') {
+            if (!empty($options['company_singular']))
+                $singular = $options['company_singular'];
+            if (!empty($options['company_plural']))
+                $plural = $options['company_plural'];
+            if (!empty($options['company_slug']))
+                $slug = sanitize_title($options['company_slug']);
+        } elseif ($key === 'review') {
+            if (!empty($options['review_singular']))
+                $singular = $options['review_singular'];
+            if (!empty($options['review_plural']))
+                $plural = $options['review_plural'];
+            if (!empty($options['review_slug']))
+                $slug = sanitize_title($options['review_slug']);
+        }
+
         $labels = array(
-            'name' => _x($data['plural'], 'Post Type General Name', 'directory-core'),
-            'singular_name' => _x($data['singular'], 'Post Type Singular Name', 'directory-core'),
-            'menu_name' => __($data['plural'], 'directory-core'),
-            'all_items' => __('All ' . $data['plural'], 'directory-core'),
-            'add_new_item' => __('Add New ' . $data['singular'], 'directory-core'),
-            'edit_item' => __('Edit ' . $data['singular'], 'directory-core'),
-            'view_item' => __('View ' . $data['singular'], 'directory-core'),
+            'name' => _x($plural, 'Post Type General Name', 'directory-core'),
+            'singular_name' => _x($singular, 'Post Type Singular Name', 'directory-core'),
+            'menu_name' => __($plural, 'directory-core'),
+            'all_items' => __('All ' . $plural, 'directory-core'),
+            'add_new_item' => __('Add New ' . $singular, 'directory-core'),
+            'edit_item' => __('Edit ' . $singular, 'directory-core'),
+            'view_item' => __('View ' . $singular, 'directory-core'),
         );
 
         $args = array(
-            'label' => __($data['singular'], 'directory-core'),
+            'label' => __($singular, 'directory-core'),
             'labels' => $labels,
             'supports' => $data['supports'],
             'hierarchical' => false,
@@ -72,7 +95,7 @@ class CPT_Registrar
             'exclude_from_search' => false,
             'publicly_queryable' => true,
             'capability_type' => 'post',
-            'rewrite' => array('slug' => $data['slug']),
+            'rewrite' => array('slug' => $slug),
             'show_in_rest' => true,
         );
 

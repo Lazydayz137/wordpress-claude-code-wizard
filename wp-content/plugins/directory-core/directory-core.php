@@ -23,6 +23,11 @@ require_once DIRECTORY_CORE_PATH . 'includes/class-vault-manager.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-demo-importer.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-claim-manager.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-dashboard-manager.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-data-importer.php';
+
+require_once DIRECTORY_CORE_PATH . 'includes/class-contact-form.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-settings-manager.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-data-fetcher.php';
 
 // Initialize
 function directory_core_init()
@@ -33,6 +38,10 @@ function directory_core_init()
     new Demo_Importer();
     new Claim_Manager();
     new Dashboard_Manager();
+    new Data_Importer();
+    Contact_Form_Manager::init();
+    new Settings_Manager();
+    new Data_Fetcher();
 }
 add_action('plugins_loaded', 'directory_core_init');
 

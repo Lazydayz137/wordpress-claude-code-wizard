@@ -1,0 +1,175 @@
+[
+    {
+        "id": "salesforce-crm",
+        "basics": {
+            "name": "Salesforce CRM",
+            "tagline": "The world's #1 AI CRM",
+            "description": "Salesforce is the world's most trusted customer relationship management (CRM) platform. We help your marketing, sales, commerce, service and IT teams work as one from anywhere — so you can keep your customers happy everywhere. Salesforce Customer 360 is the integrated CRM platform that powers our entire suite of connected apps. With Customer 360, you can unite your marketing, sales, commerce, service, and IT teams on one integrated platform that powers your entire suite of connected apps. This gives you a single source of truth for every customer, so you can deliver the personalized experiences they expect.",
+            "founded": "1999",
+            "headquarters": "San Francisco, CA",
+            "employees": "70,000+",
+            "funding": "Public (NYSE: CRM)"
+        },
+        "detailed_features": [
+            {
+                "name": "Contact Management",
+                "description": "Get a complete view of your customers, including activity history, key contacts, customer communications, and internal account discussions. Access all your customer data from a single location to get a 360-degree view of every customer.",
+                "category": "Core CRM",
+                "importance": "High"
+            },
+            {
+                "name": "Opportunity Management",
+                "description": "Track all the details of your team's deals — stage, products, competition, quotes, and more. Stay connected to the people and information you need to close every sale.",
+                "category": "Sales",
+                "importance": "High"
+            },
+            {
+                "name": "Lead Management",
+                "description": "Track your leads from click to close, while continually optimizing your campaigns across every channel. Make smarter decisions about where to invest your marketing dollars.",
+                "category": "Marketing",
+                "importance": "Medium"
+            }
+        ],
+        "pricing": {
+            "model": "Subscription",
+            "free_tier": false,
+            "starter_price": "$25/user/month",
+            "tiers": [
+                {
+                    "name": "Essentials",
+                    "price": "$25",
+                    "features": [
+                        "Account & Contact Management",
+                        "Opportunity Tracking",
+                        "Lead Management",
+                        "Mobile App"
+                    ],
+                    "limits": "Up to 10 users",
+                    "best_for": "Small Business"
+                },
+                {
+                    "name": "Professional",
+                    "price": "$75",
+                    "features": [
+                        "Everything in Essentials",
+                        "Collaborative Forecasting",
+                        "Rules-Based Lead Scoring"
+                    ],
+                    "limits": "Unlimited users",
+                    "best_for": "Growing Teams"
+                }
+            ]
+        },
+        "use_cases": [
+            {
+                "title": "Salesforce for Startups",
+                "description": "Startups need to move fast and scale quickly. Salesforce provides a flexible platform that grows with you, offering essential CRM features at an affordable entry point.",
+                "industry": "Technology",
+                "company_size": "1-50"
+            }
+        ],
+        "pros_cons": {
+            "pros": [
+                {
+                    "title": "Extensive Customization",
+                    "explanation": "Can be tailored to fit almost any business process."
+                },
+                {
+                    "title": "Huge Ecosystem",
+                    "explanation": "Thousands of integrations available on AppExchange."
+                }
+            ],
+            "cons": [
+                {
+                    "title": "Steep Learning Curve",
+                    "explanation": "Can be complex for new users to master."
+                },
+                {
+                    "title": "Cost",
+                    "explanation": "Can get expensive quickly with add-ons and higher tiers."
+                }
+            ]
+        },
+        "integrations": [
+            {
+                "name": "Slack",
+                "type": "Communication",
+                "description": "Collaborate on deals directly from Slack.",
+                "documentation_url": "https://slack.com/help"
+            },
+            {
+                "name": "Mailchimp",
+                "type": "Marketing",
+                "description": "Sync leads and contacts for email campaigns.",
+                "documentation_url": "https://mailchimp.com/help"
+            }
+        ],
+        "alternatives": [
+            {
+                "name": "HubSpot CRM",
+                "comparison": "HubSpot offers a more user-friendly interface and a generous free tier, making it better for smaller businesses.",
+                "when_to_choose": "If you need a free, easy-to-use CRM."
+            },
+            {
+                "name": "Zoho CRM",
+                "comparison": "Zoho offers similar features at a lower price point but with a less polished UI.",
+                "when_to_choose": "If budget is the primary concern."
+            }
+        ],
+        "reviews": {
+            "average_rating": 4.5,
+            "total_reviews": 15000,
+            "rating_breakdown": {
+                "5": 70,
+                "4": 20,
+                "3": 5,
+                "2": 3,
+                "1": 2
+            },
+            "expert_reviews": [
+                {
+                    "source": "G2",
+                    "rating": 4.4,
+                    "summary": "A powerful platform that sets the standard for CRM."
+                }
+            ]
+        },
+        "technical_specs": {
+            "platforms": [
+                "Web",
+                "iOS",
+                "Android"
+            ],
+            "languages": [
+                "English",
+                "Spanish",
+                "French",
+                "German",
+                "Japanese"
+            ],
+            "api": "REST, SOAP",
+            "security": "SOC 2 Type II, ISO 27001",
+            "compliance": "GDPR, HIPAA"
+        },
+        "support": {
+            "channels": [
+                "Phone",
+                "Chat",
+                "Email",
+                "Community"
+            ],
+            "response_time": "24/7 for Premier Support",
+            "documentation_quality": "Excellent",
+            "community": "Trailhead Community"
+        },
+        "media": {
+            "logo": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=200&q=80",
+            "screenshots": [
+                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+            ],
+            "videos": [],
+            "diagrams": []
+        }
+    }
+]

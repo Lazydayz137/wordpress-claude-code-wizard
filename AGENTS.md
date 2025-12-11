@@ -37,7 +37,7 @@
      
      **GOAL: Create pages so information-rich that visitors never need to leave your site**
      
-     1. **Research each individual entry exhaustively using Jina AI**
+     1. **Research each individual entry exhaustively using Perplexity AI**
         - Scrape the company's main website completely
         - Find and scrape their pricing pages, feature lists, documentation
         - Search for reviews, comparisons, alternatives
