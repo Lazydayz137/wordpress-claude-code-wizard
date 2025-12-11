@@ -18,6 +18,7 @@ define('DIRECTORY_CORE_URL', plugin_dir_url(__FILE__));
 
 // Include Classes
 require_once DIRECTORY_CORE_PATH . 'includes/class-cpt-registrar.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-taxonomy-registrar.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-review-manager.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-vault-manager.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-demo-importer.php';
@@ -47,6 +48,20 @@ function directory_core_init()
     }
 }
 add_action('plugins_loaded', 'directory_core_init');
+
+/**
+ * Enqueue Public Assets
+ */
+function directory_core_scripts()
+{
+    wp_enqueue_style(
+        'directory-core-style',
+        plugin_dir_url(__FILE__) . 'assets/css/directory-style.css',
+        array(),
+        '1.0.0'
+    );
+}
+add_action('wp_enqueue_scripts', 'directory_core_scripts');
 
 // Flush rewrite rules on activation
 register_activation_hook(__FILE__, 'directory_core_activate');

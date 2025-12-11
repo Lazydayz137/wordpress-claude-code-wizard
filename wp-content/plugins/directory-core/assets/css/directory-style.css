@@ -1,0 +1,106 @@
+/* Directory Core Styles */
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 16px;
+}
+
+/* Verified Badge */
+.verified-badge {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Unclaimed Link */
+.unclaimed-link {
+    color: #ff9800;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background: rgba(255, 152, 0, 0.1);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.unclaimed-link:hover {
+    background: rgba(255, 152, 0, 0.2);
+    color: #e65100;
+}
+
+/* Ad Slots */
+.directory-ad-slot {
+    background: #f8f9fa;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.directory-ad-slot small {
+    text-transform: uppercase;
+    color: #adb5bd;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+/* Claim CTA Widget */
+.claim-cta {
+    border-left: 4px solid #ff9800;
+    background: #fff3e0;
+}
+
+.claim-form-container h3 {
+    color: #e65100;
+    margin-top: 0;
+}
+
+/* Contact Widget */
+.contact-widget h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Layout Utilities */
+.company-header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.company-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .company-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

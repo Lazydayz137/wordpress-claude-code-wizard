@@ -9,16 +9,14 @@
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                 <header class="company-header glass-panel p-6 mb-8 reveal-item">
-                    <div class="header-top" style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="header-top">
                         <h1><?php the_title(); ?></h1>
                         <?php if ($is_verified): ?>
-                            <div class="verified-badge"
-                                style="background:#4CAF50; color:white; padding:5px 10px; border-radius:15px; font-size:0.9em;">
+                            <div class="verified-badge">
                                 &#10003; <?php _e('Verified Listing', 'my-custom-theme'); ?>
                             </div>
                         <?php else: ?>
-                            <a href="#claim-form" class="unclaimed-link"
-                                style="color:#ff9800; font-weight:bold; text-decoration:none;">
+                            <a href="#claim-form" class="unclaimed-link">
                                 &#9888; <?php _e('Unclaimed', 'my-custom-theme'); ?>
                             </a>
                         <?php endif; ?>
@@ -27,9 +25,8 @@
                     <?php
                     $logo = get_post_meta(get_the_ID(), 'logo', true);
                     if ($logo): ?>
-                        <div class="company-logo" style="margin-top:15px;">
-                            <img src="<?php echo esc_url($logo); ?>" alt="<?php the_title(); ?> Logo"
-                                style="max-width:150px; border-radius:10px;">
+                        <div class="company-logo">
+                            <img src="<?php echo esc_url($logo); ?>" alt="<?php the_title(); ?> Logo">
                         </div>
                     <?php endif; ?>
                 </header>
@@ -112,8 +109,7 @@
 
                         <!-- Claim / Contact Actions -->
                         <?php if (!$is_verified): ?>
-                            <div class="claim-cta glass-panel p-6 mb-8 reveal-item" id="claim-form"
-                                style="border-left: 5px solid #ff9800;">
+                            <div class="claim-cta glass-panel p-6 mb-8 reveal-item" id="claim-form">
                                 <?php get_template_part('template-parts/components/claim-form'); ?>
                             </div>
                         <?php endif; ?>
