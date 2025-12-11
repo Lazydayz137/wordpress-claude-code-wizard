@@ -1,175 +1,315 @@
 [
-    {
-        "id": "salesforce-crm",
-        "basics": {
-            "name": "Salesforce CRM",
-            "tagline": "The world's #1 AI CRM",
-            "description": "Salesforce is the world's most trusted customer relationship management (CRM) platform. We help your marketing, sales, commerce, service and IT teams work as one from anywhere — so you can keep your customers happy everywhere. Salesforce Customer 360 is the integrated CRM platform that powers our entire suite of connected apps. With Customer 360, you can unite your marketing, sales, commerce, service, and IT teams on one integrated platform that powers your entire suite of connected apps. This gives you a single source of truth for every customer, so you can deliver the personalized experiences they expect.",
-            "founded": "1999",
-            "headquarters": "San Francisco, CA",
-            "employees": "70,000+",
-            "funding": "Public (NYSE: CRM)"
+  {
+    "id": "salesforce-crm",
+    "basics": {
+      "name": "Salesforce CRM",
+      "tagline": "The world's #1 AI CRM",
+      "description": "Salesforce is the world's most trusted customer relationship management (CRM) platform. We help your marketing, sales, commerce, service and IT teams work as one from anywhere \u2014 so you can keep your customers happy everywhere. Salesforce Customer 360 is the integrated CRM platform that powers our entire suite of connected apps. With Customer 360, you can unite your marketing, sales, commerce, service, and IT teams on one integrated platform that powers your entire suite of connected apps. This gives you a single source of truth for every customer, so you can deliver the personalized experiences they expect.",
+      "founded": "1999",
+      "headquarters": "San Francisco, CA",
+      "employees": "70,000+",
+      "funding": "Public (NYSE: CRM)"
+    },
+    "detailed_features": [
+      {
+        "name": "Contact Management",
+        "description": "Get a complete view of your customers, including activity history, key contacts, customer communications, and internal account discussions. Access all your customer data from a single location to get a 360-degree view of every customer.",
+        "category": "Core CRM",
+        "importance": "High"
+      },
+      {
+        "name": "Opportunity Management",
+        "description": "Track all the details of your team's deals \u2014 stage, products, competition, quotes, and more. Stay connected to the people and information you need to close every sale.",
+        "category": "Sales",
+        "importance": "High"
+      },
+      {
+        "name": "Lead Management",
+        "description": "Track your leads from click to close, while continually optimizing your campaigns across every channel. Make smarter decisions about where to invest your marketing dollars.",
+        "category": "Marketing",
+        "importance": "Medium"
+      }
+    ],
+    "pricing": {
+      "model": "Subscription",
+      "free_tier": false,
+      "starter_price": "$25/user/month",
+      "tiers": [
+        {
+          "name": "Essentials",
+          "price": "$25",
+          "features": [
+            "Account & Contact Management",
+            "Opportunity Tracking",
+            "Lead Management",
+            "Mobile App"
+          ],
+          "limits": "Up to 10 users",
+          "best_for": "Small Business"
         },
-        "detailed_features": [
-            {
-                "name": "Contact Management",
-                "description": "Get a complete view of your customers, including activity history, key contacts, customer communications, and internal account discussions. Access all your customer data from a single location to get a 360-degree view of every customer.",
-                "category": "Core CRM",
-                "importance": "High"
-            },
-            {
-                "name": "Opportunity Management",
-                "description": "Track all the details of your team's deals — stage, products, competition, quotes, and more. Stay connected to the people and information you need to close every sale.",
-                "category": "Sales",
-                "importance": "High"
-            },
-            {
-                "name": "Lead Management",
-                "description": "Track your leads from click to close, while continually optimizing your campaigns across every channel. Make smarter decisions about where to invest your marketing dollars.",
-                "category": "Marketing",
-                "importance": "Medium"
-            }
-        ],
-        "pricing": {
-            "model": "Subscription",
-            "free_tier": false,
-            "starter_price": "$25/user/month",
-            "tiers": [
-                {
-                    "name": "Essentials",
-                    "price": "$25",
-                    "features": [
-                        "Account & Contact Management",
-                        "Opportunity Tracking",
-                        "Lead Management",
-                        "Mobile App"
-                    ],
-                    "limits": "Up to 10 users",
-                    "best_for": "Small Business"
-                },
-                {
-                    "name": "Professional",
-                    "price": "$75",
-                    "features": [
-                        "Everything in Essentials",
-                        "Collaborative Forecasting",
-                        "Rules-Based Lead Scoring"
-                    ],
-                    "limits": "Unlimited users",
-                    "best_for": "Growing Teams"
-                }
-            ]
-        },
-        "use_cases": [
-            {
-                "title": "Salesforce for Startups",
-                "description": "Startups need to move fast and scale quickly. Salesforce provides a flexible platform that grows with you, offering essential CRM features at an affordable entry point.",
-                "industry": "Technology",
-                "company_size": "1-50"
-            }
-        ],
-        "pros_cons": {
-            "pros": [
-                {
-                    "title": "Extensive Customization",
-                    "explanation": "Can be tailored to fit almost any business process."
-                },
-                {
-                    "title": "Huge Ecosystem",
-                    "explanation": "Thousands of integrations available on AppExchange."
-                }
-            ],
-            "cons": [
-                {
-                    "title": "Steep Learning Curve",
-                    "explanation": "Can be complex for new users to master."
-                },
-                {
-                    "title": "Cost",
-                    "explanation": "Can get expensive quickly with add-ons and higher tiers."
-                }
-            ]
-        },
-        "integrations": [
-            {
-                "name": "Slack",
-                "type": "Communication",
-                "description": "Collaborate on deals directly from Slack.",
-                "documentation_url": "https://slack.com/help"
-            },
-            {
-                "name": "Mailchimp",
-                "type": "Marketing",
-                "description": "Sync leads and contacts for email campaigns.",
-                "documentation_url": "https://mailchimp.com/help"
-            }
-        ],
-        "alternatives": [
-            {
-                "name": "HubSpot CRM",
-                "comparison": "HubSpot offers a more user-friendly interface and a generous free tier, making it better for smaller businesses.",
-                "when_to_choose": "If you need a free, easy-to-use CRM."
-            },
-            {
-                "name": "Zoho CRM",
-                "comparison": "Zoho offers similar features at a lower price point but with a less polished UI.",
-                "when_to_choose": "If budget is the primary concern."
-            }
-        ],
-        "reviews": {
-            "average_rating": 4.5,
-            "total_reviews": 15000,
-            "rating_breakdown": {
-                "5": 70,
-                "4": 20,
-                "3": 5,
-                "2": 3,
-                "1": 2
-            },
-            "expert_reviews": [
-                {
-                    "source": "G2",
-                    "rating": 4.4,
-                    "summary": "A powerful platform that sets the standard for CRM."
-                }
-            ]
-        },
-        "technical_specs": {
-            "platforms": [
-                "Web",
-                "iOS",
-                "Android"
-            ],
-            "languages": [
-                "English",
-                "Spanish",
-                "French",
-                "German",
-                "Japanese"
-            ],
-            "api": "REST, SOAP",
-            "security": "SOC 2 Type II, ISO 27001",
-            "compliance": "GDPR, HIPAA"
-        },
-        "support": {
-            "channels": [
-                "Phone",
-                "Chat",
-                "Email",
-                "Community"
-            ],
-            "response_time": "24/7 for Premier Support",
-            "documentation_quality": "Excellent",
-            "community": "Trailhead Community"
-        },
-        "media": {
-            "logo": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=200&q=80",
-            "screenshots": [
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-            ],
-            "videos": [],
-            "diagrams": []
+        {
+          "name": "Professional",
+          "price": "$75",
+          "features": [
+            "Everything in Essentials",
+            "Collaborative Forecasting",
+            "Rules-Based Lead Scoring"
+          ],
+          "limits": "Unlimited users",
+          "best_for": "Growing Teams"
         }
+      ]
+    },
+    "use_cases": [
+      {
+        "title": "Salesforce for Startups",
+        "description": "Startups need to move fast and scale quickly. Salesforce provides a flexible platform that grows with you, offering essential CRM features at an affordable entry point.",
+        "industry": "Technology",
+        "company_size": "1-50"
+      }
+    ],
+    "pros_cons": {
+      "pros": [
+        {
+          "title": "Extensive Customization",
+          "explanation": "Can be tailored to fit almost any business process."
+        },
+        {
+          "title": "Huge Ecosystem",
+          "explanation": "Thousands of integrations available on AppExchange."
+        }
+      ],
+      "cons": [
+        {
+          "title": "Steep Learning Curve",
+          "explanation": "Can be complex for new users to master."
+        },
+        {
+          "title": "Cost",
+          "explanation": "Can get expensive quickly with add-ons and higher tiers."
+        }
+      ]
+    },
+    "integrations": [
+      {
+        "name": "Slack",
+        "type": "Communication",
+        "description": "Collaborate on deals directly from Slack.",
+        "documentation_url": "https://slack.com/help"
+      },
+      {
+        "name": "Mailchimp",
+        "type": "Marketing",
+        "description": "Sync leads and contacts for email campaigns.",
+        "documentation_url": "https://mailchimp.com/help"
+      }
+    ],
+    "alternatives": [
+      {
+        "name": "HubSpot CRM",
+        "comparison": "HubSpot offers a more user-friendly interface and a generous free tier, making it better for smaller businesses.",
+        "when_to_choose": "If you need a free, easy-to-use CRM."
+      },
+      {
+        "name": "Zoho CRM",
+        "comparison": "Zoho offers similar features at a lower price point but with a less polished UI.",
+        "when_to_choose": "If budget is the primary concern."
+      }
+    ],
+    "reviews": {
+      "average_rating": 4.5,
+      "total_reviews": 15000,
+      "rating_breakdown": {
+        "5": 70,
+        "4": 20,
+        "3": 5,
+        "2": 3,
+        "1": 2
+      },
+      "expert_reviews": [
+        {
+          "source": "G2",
+          "rating": 4.4,
+          "summary": "A powerful platform that sets the standard for CRM."
+        }
+      ]
+    },
+    "technical_specs": {
+      "platforms": [
+        "Web",
+        "iOS",
+        "Android"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "French",
+        "German",
+        "Japanese"
+      ],
+      "api": "REST, SOAP",
+      "security": "SOC 2 Type II, ISO 27001",
+      "compliance": "GDPR, HIPAA"
+    },
+    "support": {
+      "channels": [
+        "Phone",
+        "Chat",
+        "Email",
+        "Community"
+      ],
+      "response_time": "24/7 for Premier Support",
+      "documentation_quality": "Excellent",
+      "community": "Trailhead Community"
+    },
+    "media": {
+      "logo": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=200&q=80",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+      ],
+      "videos": [],
+      "diagrams": []
     }
+  },
+  {
+    "id": "google-ChIJ_x8sjqqsDogR5PdlBv-3EfU",
+    "basics": {
+      "name": "Giordano's",
+      "tagline": "Rated 4.5/5 by 8234 reviews",
+      "description": "Famous for deep-dish stuffed pizza since 1974.",
+      "headquarters": "130 E Randolph St, Chicago, IL 60601, USA",
+      "website": "https://giordanos.com",
+      "phone": "(312) 616-1200"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Pizza"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-11T12:18:23.375766",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-ChIJVTPokq4sDogRBKKaYFM0Uyk",
+    "basics": {
+      "name": "Gino's East",
+      "tagline": "Rated 4.3/5 by 6412 reviews",
+      "description": "Iconic Chicago pizzeria known for graffiti-covered walls.",
+      "headquarters": "162 E Superior St, Chicago, IL 60611, USA",
+      "website": "https://ginoseast.com",
+      "phone": "(312) 266-3337"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbing"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-11T12:18:23.375799",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-ChIJh1a6jMksDogRPTXfVrElvx8",
+    "basics": {
+      "name": "Lou Malnati's Pizzeria",
+      "tagline": "Rated 4.6/5 by 9821 reviews",
+      "description": "Family-owned chain serving butter crust deep dish since 1971.",
+      "headquarters": "439 N Wells St, Chicago, IL 60654, USA",
+      "website": "https://loumalnatis.com",
+      "phone": "(312) 828-9800"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbing"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-11T12:18:23.375814",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-plumber-austin-1",
+    "basics": {
+      "name": "ABC Plumbing Austin",
+      "tagline": "Rated 4.8/5 by 342 reviews",
+      "description": "24/7 emergency plumbing services in Austin metro.",
+      "headquarters": "1234 Main St, Austin, TX 78701, USA",
+      "website": "https://abcplumbing.example.com",
+      "phone": "(512) 555-1234"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbing"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-11T12:18:23.375833",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-plumber-austin-2",
+    "basics": {
+      "name": "Austin Pro Plumbers",
+      "tagline": "Rated 4.7/5 by 567 reviews",
+      "description": "Licensed and insured plumbing experts.",
+      "headquarters": "5678 Congress Ave, Austin, TX 78704, USA",
+      "website": "https://austinproplumbers.example.com",
+      "phone": "(512) 555-5678"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbing"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-11T12:18:23.375847",
+      "is_claimed": false
+    }
+  }
 ]
