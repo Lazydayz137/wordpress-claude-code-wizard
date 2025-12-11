@@ -3,155 +3,129 @@
 <main class="site-main">
     <div class="company-single-container">
         <?php while (have_posts()):
-            the_post(); ?>
+            the_post();
+            $is_verified = Monetization_Manager::is_verified(get_the_ID());
+            ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                <header class="company-header">
-                    <h1><?php the_title(); ?></h1>
+                <header class="company-header glass-panel p-6 mb-8 reveal-item">
+                    <div class="header-top" style="display:flex; justify-content:space-between; align-items:center;">
+                        <h1><?php the_title(); ?></h1>
+                        <?php if ($is_verified): ?>
+                            <div class="verified-badge"
+                                style="background:#4CAF50; color:white; padding:5px 10px; border-radius:15px; font-size:0.9em;">
+                                &#10003; <?php _e('Verified Listing', 'my-custom-theme'); ?>
+                            </div>
+                        <?php else: ?>
+                            <a href="#claim-form" class="unclaimed-link"
+                                style="color:#ff9800; font-weight:bold; text-decoration:none;">
+                                &#9888; <?php _e('Unclaimed', 'my-custom-theme'); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
 
                     <?php
                     $logo = get_post_meta(get_the_ID(), 'logo', true);
                     if ($logo): ?>
-                        <div class="company-logo">
-                            <img src="<?php echo esc_url($logo); ?>" alt="<?php the_title(); ?> Logo">
+                        <div class="company-logo" style="margin-top:15px;">
+                            <img src="<?php echo esc_url($logo); ?>" alt="<?php the_title(); ?> Logo"
+                                style="max-width:150px; border-radius:10px;">
                         </div>
                     <?php endif; ?>
                 </header>
 
-                <div class="company-content">
-                    <?php the_content(); ?>
-                </div>
+                <!-- Ad Slot: Top -->
+                <?php Monetization_Manager::render_ad_slot('header'); ?>
 
-                <!-- Custom Fields Display (Basics) -->
-                <div class="company-details">
-                    <?php
-                    $fields = ['founded', 'headquarters', 'employees', 'funding'];
-                    foreach ($fields as $field) {
-                        $value = get_post_meta(get_the_ID(), $field, true);
-                        if ($value) {
-                            echo '<p><strong>' . ucfirst($field) . ':</strong> ' . esc_html($value) . '</p>';
-                        }
-                    }
-                    ?>
-                </div>
+                <div class="company-content-wrapper" style="display:grid; grid-template-columns: 2fr 1fr; gap:30px;">
 
-                <?php
-                // Prepare FAQ Schema
-                $faq_schema = [
-                    '@context' => 'https://schema.org',
-                    '@type' => 'FAQPage',
-                    'mainEntity' => []
-                ];
-
-                $faqs = [];
-
-                // Q1: What is it?
-                $description = get_the_content();
-                if ($description) {
-                    $faqs[] = [
-                        'question' => sprintf(__('What is %s?', 'my-custom-theme'), get_the_title()),
-                        'answer' => wp_trim_words($description, 50)
-                    ];
-                }
-
-                // Q2: Pricing
-                $pricing_model = get_post_meta(get_the_ID(), 'pricing_model', true);
-                $starter_price = get_post_meta(get_the_ID(), 'pricing_starter_price', true);
-                if ($pricing_model) {
-                    $answer = sprintf(__('The pricing model is %s.', 'my-custom-theme'), $pricing_model);
-                    if ($starter_price) {
-                        $answer .= sprintf(__(' Pricing starts at %s.', 'my-custom-theme'), $starter_price);
-                    }
-                    $faqs[] = [
-                        'question' => sprintf(__('How much does %s cost?', 'my-custom-theme'), get_the_title()),
-                        'answer' => $answer
-                    ];
-                }
-
-                // Q3: Location
-                $headquarters = get_post_meta(get_the_ID(), 'headquarters', true);
-                if ($headquarters) {
-                    $faqs[] = [
-                        'question' => sprintf(__('Where is %s located?', 'my-custom-theme'), get_the_title()),
-                        'answer' => sprintf(__('%s is headquartered in %s.', 'my-custom-theme'), get_the_title(), $headquarters)
-                    ];
-                }
-
-                // Convert to Schema
-                foreach ($faqs as $faq) {
-                    $faq_schema['mainEntity'][] = [
-                        '@type' => 'Question',
-                        'name' => $faq['question'],
-                        'acceptedAnswer' => [
-                            '@type' => 'Answer',
-                            'text' => $faq['answer']
-                        ]
-                    ];
-                }
-                ?>
-
-                <!-- FAQ Schema -->
-                <script type="application/ld+json">
-                        <?php echo json_encode($faq_schema); ?>
-                    </script>
-
-                <div class="company-content glass-panel p-6 mb-8 reveal-item">
-                    <h2><?php _e('About', 'my-custom-theme'); ?>     <?php the_title(); ?></h2>
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                    </div>
-                </div>
-
-                <?php if (!empty($faqs)): ?>
-                    <div class="company-faq glass-panel p-6 mb-8 reveal-item">
-                        <h2><?php _e('Frequently Asked Questions', 'my-custom-theme'); ?></h2>
-                        <div class="faq-list">
-                            <?php foreach ($faqs as $faq): ?>
-                                <div class="faq-item">
-                                    <h3 class="faq-question"><?php echo esc_html($faq['question']); ?></h3>
-                                    <p class="faq-answer"><?php echo esc_html($faq['answer']); ?></p>
-                                </div>
-                            <?php endforeach; ?>
+                    <!-- Main Column -->
+                    <div class="main-column">
+                        <div class="company-content glass-panel p-6 mb-8 reveal-item">
+                            <h2><?php _e('About', 'my-custom-theme'); ?>     <?php the_title(); ?></h2>
+                            <div class="entry-content">
+                                <?php the_content(); ?>
+                            </div>
                         </div>
-                    </div>
-                <?php endif; ?>
 
-                <!-- Reviews Section -->
-                <div class="company-reviews glass-panel p-6 reveal-item" id="reviews">
-                    <h2><?php _e('Reviews', 'directory-core'); ?></h2>
-
-                    <?php
-                    // Display Reviews
-                    $reviews = Review_Manager::get_reviews_for_listing(get_the_ID());
-
-                    if ($reviews): ?>
-                        <div class="reviews-list">
-                            <?php foreach ($reviews as $review): ?>
-                                <div class="review-item">
-                                    <div class="review-header">
-                                        <span class="review-rating">
-                                            <?php echo str_repeat('&#9733;', intval($review->rating)); ?>
-                                            <?php echo str_repeat('&#9734;', 5 - intval($review->rating)); ?>
-                                        </span>
-                                        <span class="review-title"><?php echo esc_html($review->post_title); ?></span>
-                                    </div>
-                                    <div class="review-content">
-                                        <?php echo wpautop(esc_html($review->post_content)); ?>
-                                    </div>
-                                    <?php if ($review->photo_id): ?>
-                                        <div class="review-photo">
-                                            <?php echo wp_get_attachment_image($review->photo_id, 'thumbnail'); ?>
+                        <!-- FAQ Section -->
+                        <?php if (!empty($faqs)): ?>
+                            <div class="company-faq glass-panel p-6 mb-8 reveal-item">
+                                <h2><?php _e('Frequently Asked Questions', 'my-custom-theme'); ?></h2>
+                                <div class="faq-list">
+                                    <?php foreach ($faqs as $faq): ?>
+                                        <div class="faq-item">
+                                            <h3 class="faq-question"><?php echo esc_html($faq['question']); ?></h3>
+                                            <p class="faq-answer"><?php echo esc_html($faq['answer']); ?></p>
                                         </div>
-                                    <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php else: ?>
-                        <p><?php _e('No reviews yet. Be the first to review!', 'directory-core'); ?></p>
-                    <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
 
-                    <!-- Review Form -->
-                    <?php echo Review_Manager::render_review_form(get_the_ID()); ?>
+                        <!-- Reviews Section -->
+                        <div class="company-reviews glass-panel p-6 reveal-item" id="reviews">
+                            <h2><?php _e('Reviews', 'directory-core'); ?></h2>
+                            <!-- Reviews Loop (Existing Logic) -->
+                            <?php
+                            $reviews = Review_Manager::get_reviews_for_listing(get_the_ID());
+                            if ($reviews): ?>
+                                <div class="reviews-list">
+                                    <?php foreach ($reviews as $review): ?>
+                                        <div class="review-item">
+                                            <div class="review-header">
+                                                <span
+                                                    class="review-rating"><?php echo str_repeat('&#9733;', intval($review->rating)); ?></span>
+                                                <span class="review-title"><?php echo esc_html($review->post_title); ?></span>
+                                            </div>
+                                            <div class="review-content"><?php echo wpautop(esc_html($review->post_content)); ?>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else: ?>
+                                <p><?php _e('No reviews yet.', 'directory-core'); ?></p>
+                            <?php endif; ?>
+                            <?php echo Review_Manager::render_review_form(get_the_ID()); ?>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Column (Monetization & Details) -->
+                    <div class="sidebar-column">
+
+                        <!-- Company Details -->
+                        <div class="company-details glass-panel p-6 mb-8 reveal-item">
+                            <h3><?php _e('At a Glance', 'my-custom-theme'); ?></h3>
+                            <?php
+                            $fields = ['founded', 'headquarters', 'employees', 'funding'];
+                            foreach ($fields as $field) {
+                                $value = get_post_meta(get_the_ID(), $field, true);
+                                if ($value) {
+                                    echo '<p><strong>' . ucfirst($field) . ':</strong> ' . esc_html($value) . '</p>';
+                                }
+                            }
+                            ?>
+                        </div>
+
+                        <!-- Ad Slot: Sidebar -->
+                        <?php Monetization_Manager::render_ad_slot('sidebar'); ?>
+
+                        <!-- Claim / Contact Actions -->
+                        <?php if (!$is_verified): ?>
+                            <div class="claim-cta glass-panel p-6 mb-8 reveal-item" id="claim-form"
+                                style="border-left: 5px solid #ff9800;">
+                                <?php get_template_part('template-parts/components/claim-form'); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Lead Gen Form (Contact) -->
+                        <div class="contact-widget glass-panel p-6 reveal-item">
+                            <h3><?php echo $is_verified ? __('Contact Business', 'my-custom-theme') : __('Request a Quote', 'my-custom-theme'); ?>
+                            </h3>
+                            <?php echo do_shortcode('[directory_contact_form]'); ?>
+                        </div>
+
+                    </div>
                 </div>
 
             </article>

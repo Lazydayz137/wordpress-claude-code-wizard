@@ -22,7 +22,8 @@ if ($is_claimed) {
     <h3><?php _e('Is this your business?', 'my-custom-theme'); ?></h3>
     <p><?php _e('Claim this listing to manage details and reviews.', 'my-custom-theme'); ?></p>
 
-    <form action="" method="post" class="claim-form">
+    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="claim-form">
+        <input type="hidden" name="action" value="submit_claim">
         <?php wp_nonce_field('submit_claim', 'directory_claim_nonce'); ?>
         <input type="hidden" name="listing_id" value="<?php echo esc_attr($listing_id); ?>">
 
