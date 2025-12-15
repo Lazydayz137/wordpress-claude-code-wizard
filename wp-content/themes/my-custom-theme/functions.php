@@ -36,7 +36,7 @@ function directory_sort_query($query)
                     $query->set('orderby', 'title');
                     $query->set('order', 'ASC');
                     break;
-
+                case 'rating':
                     $query->set('meta_key', '_listing_average_rating');
                     $query->set('orderby', 'meta_value_num');
                     $query->set('order', 'DESC');

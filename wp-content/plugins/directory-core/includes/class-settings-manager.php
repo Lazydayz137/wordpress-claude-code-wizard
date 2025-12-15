@@ -40,6 +40,7 @@ class Settings_Manager
 
         $review_singular = isset($options['review_singular']) ? $options['review_singular'] : 'Review';
         $review_plural = isset($options['review_plural']) ? $options['review_plural'] : 'Reviews';
+        $review_slug = isset($options['review_slug']) ? $options['review_slug'] : 'reviews';
         // The old $options variable is no longer needed as we use get_option directly for each field.
         // $options = get_option('directory_cpt_labels', array());
 
@@ -50,17 +51,17 @@ class Settings_Manager
             <p>Customize the labels and slugs for your directory listings.</p>
 
             <form method="post" action="options.php">
-                <?php 
-                settings_fields('directory_cpt_settings'); 
+                <?php
+                settings_fields('directory_cpt_settings');
                 settings_fields('directory_monetization'); // Register this group
-                do_settings_sections('directory-settings'); 
+                do_settings_sections('directory-settings');
                 ?>
 
                 <table class="form-table">
-                        <th scope="row" colspan="2">
-                            <hr>
-                            <h2>Review Type</h2>
-                        </th>
+                    <th scope="row" colspan="2">
+                        <hr>
+                        <h2>Review Type</h2>
+                    </th>
                     </tr>
                     <tr valign="top">
                         <th scope="row">Singular Name</th>
@@ -81,24 +82,59 @@ class Settings_Manager
                     <tr valign="top">
                         <th scope="row" colspan="2">
                             <hr>
+                            <h2>Niche Branding & Monetization</h2>
+                        </th>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">Directory Niche</th>
+                        <td>
+                            <input type="text" name="directory_niche" class="regular-text"
+                                value="<?php echo esc_attr(get_option('directory_niche', 'local businesses')); ?>"
+                                placeholder="e.g. plumbers, restaurants, dentists" />
+                            <p class="description">Your target niche - used in homepage and footer text.</p>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">Target City/Region</th>
+                        <td>
+                            <input type="text" name="directory_city" class="regular-text"
+                                value="<?php echo esc_attr(get_option('directory_city', '')); ?>"
+                                placeholder="e.g. Austin, TX or Greater Chicago Area" />
+                            <p class="description">Primary location focus for SEO and branding.</p>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">AdSense Publisher ID</th>
+                        <td>
+                            <input type="text" name="directory_adsense_id" class="regular-text"
+                                value="<?php echo esc_attr(get_option('directory_adsense_id', '')); ?>"
+                                placeholder="ca-pub-XXXXXXXXXXXXXXXX" />
+                            <p class="description">Your Google AdSense publisher ID. Leave blank to disable ads.</p>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <th scope="row" colspan="2">
+                            <hr>
                             <h2>Automated Data Acquisition (Phase 6)</h2>
                         </th>
                     </tr>
                     <tr valign="top">
-                         <th scope="row">Data Provider</th>
-                         <td>
-                             <select id="fetch_provider">
-                                 <option value="osm">OpenStreetMap (Nominatim) - Free</option>
-                                 <option value="google">Google Places API - Premium</option>
-                                 <option value="brightdata">Bright Data (Web Unlocker) - Scraper</option>
-                             </select>
-                             <p class="description">Select the source for the Fetch Engine.</p>
-                         </td>
+                        <th scope="row">Data Provider</th>
+                        <td>
+                            <select id="fetch_provider">
+                                <option value="osm">OpenStreetMap (Nominatim) - Free</option>
+                                <option value="google">Google Places API - Premium</option>
+                                <option value="brightdata">Bright Data (Web Unlocker) - Scraper</option>
+                            </select>
+                            <p class="description">Select the source for the Fetch Engine.</p>
+                        </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row">API Key (if required)</th>
                         <td>
-                            <input type="password" id="fetch_api_key" class="regular-text" placeholder="e.g. Google Places / Scraper API Key" />
+                            <input type="password" id="fetch_api_key" class="regular-text"
+                                placeholder="e.g. Google Places / Scraper API Key" />
                             <p class="description">Required for Google Places and Bright Data.</p>
                         </td>
                     </tr>
@@ -137,10 +173,10 @@ class Settings_Manager
                                 return;
                             }
 
-                            if(provider !== 'osm' && !apiKey) {
-                                 if(!confirm('You selected a premium provider but provided no API Key. Continue?')) {
+                            if (provider !== 'osm' && !apiKey) {
+                                if (!confirm('You selected a premium provider but provided no API Key. Continue?')) {
                                     return;
-                                 }
+                                }
                             }
 
                             btn.prop('disabled', true).text('Fetching from ' + provider + '...');
