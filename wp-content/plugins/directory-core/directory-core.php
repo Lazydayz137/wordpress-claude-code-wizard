@@ -25,6 +25,9 @@ require_once DIRECTORY_CORE_PATH . 'includes/class-demo-importer.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-claim-manager.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-dashboard-manager.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-data-importer.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-aic-engine.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-outreach-manager.php';
+require_once DIRECTORY_CORE_PATH . 'includes/class-metro-orchestrator.php';
 
 require_once DIRECTORY_CORE_PATH . 'includes/class-contact-form.php';
 require_once DIRECTORY_CORE_PATH . 'includes/class-settings-manager.php';

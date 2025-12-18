@@ -104,6 +104,10 @@ for place in raw_places:
     parsed_companies.append(company)
     print(f"   → {name} ({price_str})")
 
+    # AI Enrichment Simulation (Matching PHP Logic)
+    print(f"     [AI] Generating rich description for {name}...")
+    company['basics']['description'] = f"<!-- AIC_Engine Generated Content -->\n<h3>About {name}</h3>\n<p>{summary}</p>\n<p>AI Generated description content would go here...</p>"
+
 # --- STEP 3: DISPERSE ---
 print(f"\n[3/3] DISPERSING: Writing {len(parsed_companies)} companies to {OUTPUT_FILE}...")
 

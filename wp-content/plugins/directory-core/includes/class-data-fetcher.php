@@ -234,6 +234,35 @@ class Data_Fetcher
     }
 
     /**
+     * Public Method for Orchestrator
+     * Fetches and processes data for a given niche and location.
+     * @return array Array of processed listing data
+     */
+    public function fetch_and_process($niche, $location)
+    {
+        // 1. Fetch (Defaulting to Google for Orchestrator)
+        // In a real scenario, this would use the configured provider
+        // For simulation/orchestration, we'll try Google (or Fallback if key missing)
+
+        $api_key = get_option('directory_google_places_api_key', '');
+        $fetched_data = $this->fetch_from_google_places($niche, $location, $api_key);
+
+        // Use OSM if Google returns nothing (or no key)
+        if (empty($fetched_data)) {
+            $fetched_data = $this->fetch_from_osm($niche, $location);
+        }
+
+        if (empty($fetched_data)) {
+            return [];
+        }
+
+        // 2. Import (This triggers AI Enrichment via create_listing)
+        $this->import_to_wordpress($fetched_data);
+
+        return $fetched_data;
+    }
+
+    /**
      * Import fetched data into WordPress
      * Uses logic similar to Data_Importer but for array input.
      */
@@ -264,6 +293,18 @@ class Data_Fetcher
             'post_type' => 'company',
             'post_status' => 'publish',
         );
+
+        // AI Enrichment
+        if (class_exists('AIC_Engine')) {
+            $aic = new AIC_Engine();
+            $enrichment_data = array(
+                'name' => $data['basics']['name'],
+                'industry' => isset($data['use_cases'][0]['industry']) ? $data['use_cases'][0]['industry'] : '',
+                'location' => isset($data['basics']['headquarters']) ? $data['basics']['headquarters'] : '',
+                'raw_summary' => $data['basics']['description']
+            );
+            $post_args['post_content'] = $aic->generate_listing_description($enrichment_data);
+        }
 
         if ($existing) {
             $post_args['ID'] = $existing[0]->ID;

@@ -16,40 +16,36 @@ $city = get_option('directory_city', 'your city');
 <main class="site-main homepage">
 
     <!-- Hero Section -->
-    <section class="hero-section"
-        style="background: var(--gradient-primary); padding: 4rem 0; text-align: center; color: white;">
+    <section class="hero-section">
         <div class="container">
-            <h1 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">
+            <h1 class="hero-title">
                 <?php printf(__('Find the Best %s', 'my-custom-theme'), ucwords(esc_html($niche))); ?>
             </h1>
-            <p style="font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem;">
+            <p class="hero-subtitle">
                 <?php printf(__('Compare prices, read reviews, and find trusted professionals in %s', 'my-custom-theme'), esc_html($city)); ?>
             </p>
 
             <!-- Search Bar -->
-            <div class="hero-search glass-panel"
-                style="max-width: 600px; margin: 0 auto; padding: 1.5rem; background: rgba(255,255,255,0.95); border-radius: var(--radius-xl);">
+            <div class="hero-search glass-panel">
                 <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>"
-                    style="display: flex; gap: 1rem;">
+                    class="hero-search-form">
                     <input type="search" name="s"
                         placeholder="<?php _e('Search businesses, services...', 'my-custom-theme'); ?>"
-                        style="flex: 1; padding: 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: 1rem;">
+                        class="hero-search-input">
                     <input type="hidden" name="post_type" value="company">
-                    <button type="submit" class="btn btn-primary"
-                        style="padding: 1rem 2rem;"><?php _e('Search', 'my-custom-theme'); ?></button>
+                    <button type="submit"
+                        class="btn btn-primary hero-search-btn"><?php _e('Search', 'my-custom-theme'); ?></button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Browse by Category -->
-    <section class="categories-section" style="padding: 4rem 0;">
+    <section class="categories-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;"><?php _e('Browse by Category', 'my-custom-theme'); ?>
-            </h2>
+            <h2 class="section-title"><?php _e('Browse by Category', 'my-custom-theme'); ?></h2>
 
-            <div class="category-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div class="category-grid">
                 <?php
                 $industries = get_terms(array(
                     'taxonomy' => 'industry',
@@ -61,12 +57,11 @@ $city = get_option('directory_city', 'your city');
                     foreach ($industries as $industry):
                         $count = $industry->count;
                         ?>
-                        <a href="<?php echo esc_url(get_term_link($industry)); ?>" class="category-card glass-panel"
-                            style="display: block; padding: 1.5rem; text-align: center; text-decoration: none; transition: var(--transition-smooth);">
-                            <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--color-text-main);">
+                        <a href="<?php echo esc_url(get_term_link($industry)); ?>" class="category-card glass-panel">
+                            <h3 class="category-title">
                                 <?php echo esc_html($industry->name); ?>
                             </h3>
-                            <span style="color: var(--color-text-muted); font-size: 0.9rem;">
+                            <span class="category-count">
                                 <?php printf(_n('%s listing', '%s listings', $count, 'my-custom-theme'), $count); ?>
                             </span>
                         </a>
@@ -79,11 +74,10 @@ $city = get_option('directory_city', 'your city');
     </section>
 
     <!-- Featured Listings -->
-    <section class="featured-section" style="padding: 4rem 0; background: var(--color-bg-body);">
+    <section class="featured-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 0.5rem;">
-                <?php _e('Top Rated Businesses', 'my-custom-theme'); ?></h2>
-            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 2rem;">
+            <h2 class="section-title"><?php _e('Top Rated Businesses', 'my-custom-theme'); ?></h2>
+            <p class="section-subtitle">
                 <?php _e('Verified listings with the highest customer ratings', 'my-custom-theme'); ?>
             </p>
 
@@ -118,13 +112,13 @@ $city = get_option('directory_city', 'your city');
                         <?php endwhile; ?>
                     </div>
                 <?php else: ?>
-                    <p style="text-align: center;"><?php _e('Import listings to see them here!', 'my-custom-theme'); ?></p>
+                    <p class="text-center"><?php _e('Import listings to see them here!', 'my-custom-theme'); ?></p>
                 <?php endif;
                 wp_reset_postdata(); ?>
             <?php endif;
             wp_reset_postdata(); ?>
 
-            <div style="text-align: center; margin-top: 2rem;">
+            <div class="text-center mt-2">
                 <a href="<?php echo home_url('/companies/'); ?>"
                     class="btn btn-outline"><?php _e('View All Listings', 'my-custom-theme'); ?></a>
             </div>
@@ -132,13 +126,11 @@ $city = get_option('directory_city', 'your city');
     </section>
 
     <!-- Browse by Location -->
-    <section class="locations-section" style="padding: 4rem 0;">
+    <section class="locations-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;"><?php _e('Browse by Location', 'my-custom-theme'); ?>
-            </h2>
+            <h2 class="section-title"><?php _e('Browse by Location', 'my-custom-theme'); ?></h2>
 
-            <div class="locations-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem;">
+            <div class="locations-grid">
                 <?php
                 $locations = get_terms(array(
                     'taxonomy' => 'location',
@@ -150,10 +142,9 @@ $city = get_option('directory_city', 'your city');
 
                 if (!empty($locations) && !is_wp_error($locations)):
                     foreach ($locations as $location): ?>
-                        <a href="<?php echo esc_url(get_term_link($location)); ?>"
-                            style="display: block; padding: 1rem; background: white; border: 1px solid var(--color-border); border-radius: var(--radius-md); text-decoration: none; transition: var(--transition-fast);">
-                            <strong style="color: var(--color-text-main);"><?php echo esc_html($location->name); ?></strong>
-                            <span style="color: var(--color-text-muted); display: block; font-size: 0.85rem;">
+                        <a href="<?php echo esc_url(get_term_link($location)); ?>" class="location-card">
+                            <strong class="location-name"><?php echo esc_html($location->name); ?></strong>
+                            <span class="location-count">
                                 <?php echo $location->count; ?>         <?php _e('businesses', 'my-custom-theme'); ?>
                             </span>
                         </a>
@@ -166,17 +157,13 @@ $city = get_option('directory_city', 'your city');
     </section>
 
     <!-- Business Owner CTA -->
-    <section class="cta-section"
-        style="padding: 4rem 0; background: var(--gradient-primary); text-align: center; color: white;">
+    <section class="cta-section">
         <div class="container">
-            <h2 style="color: white; margin-bottom: 1rem;"><?php _e('Are You a Business Owner?', 'my-custom-theme'); ?>
-            </h2>
-            <p
-                style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <h2 class="cta-title"><?php _e('Are You a Business Owner?', 'my-custom-theme'); ?></h2>
+            <p class="cta-text">
                 <?php _e('Claim your free listing, respond to reviews, and reach thousands of potential customers searching for your services.', 'my-custom-theme'); ?>
             </p>
-            <a href="<?php echo home_url('/companies/'); ?>" class="btn"
-                style="background: white; color: var(--color-primary); padding: 1rem 2rem; font-size: 1.1rem;">
+            <a href="<?php echo home_url('/companies/'); ?>" class="btn cta-btn">
                 <?php _e('Claim Your Listing for Free', 'my-custom-theme'); ?>
             </a>
         </div>

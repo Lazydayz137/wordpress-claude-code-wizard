@@ -155,6 +155,31 @@ class Settings_Manager
                             <span id="fetch_status" style="margin-left: 10px; font-weight: bold;"></span>
                         </td>
                     </tr>
+
+                    <tr valign="top">
+                        <th scope="row" colspan="2">
+                            <hr>
+                            <h2>🚀 Metro Orchestrator (Autonomous)</h2>
+                        </th>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">Target Metro Area</th>
+                        <td>
+                            <input type="text" id="metro_city" class="regular-text" placeholder="e.g. Austin, TX" />
+                            <p class="description">The Orchestrator will autonomously loop through top niches (Plumbers,
+                                Electricians, etc.) for this city.</p>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">Launch Campaign</th>
+                        <td>
+                            <button type="button" id="btn_launch_metro" class="button button-primary button-large">LAUNCH METRO
+                                CAMPAIGN</button>
+                            <div id="metro_status"
+                                style="margin-top: 10px; padding: 10px; background: #f0f0f1; display:none; max-height: 200px; overflow-y: auto;">
+                            </div>
+                        </td>
+                    </tr>
                 </table>
 
                 <script>
@@ -199,6 +224,43 @@ class Settings_Manager
                             });
                         });
                     });
+
+                    // Metro Launch Handler
+                    $('#btn_launch_metro').on('click', function () {
+                        var btn = $(this);
+                        var city = $('#metro_city').val();
+                        var status = $('#metro_status');
+
+                        if (!city) {
+                            alert('Please enter a Target Metro Area');
+                            return;
+                        }
+
+                        if (!confirm('⚠ WARNING: This will autonomous fetch listings and trigger simulated outreach emails for multiple niches in ' + city + '. Proceed?')) {
+                            return;
+                        }
+
+                        btn.prop('disabled', true).text('Orchestrating...');
+                        status.show().html('Initializing Campaign...<br>');
+
+                        $.post(ajaxurl, {
+                            action: 'directory_launch_metro',
+                            security: '<?php echo wp_create_nonce("directory_fetch_nonce"); ?>', // Reusing nonce for MVP
+                            city: city
+                        }, function (response) {
+                            btn.prop('disabled', false).text('LAUNCH METRO CAMPAIGN');
+                            if (response.success) {
+                                var logHtml = '<strong>Campaign Complete!</strong><br>';
+                                $.each(response.data.log, function (i, item) {
+                                    logHtml += '✅ ' + item + '<br>';
+                                });
+                                status.append(logHtml);
+                            } else {
+                                status.append('<span style="color:red">Error: ' + response.data + '</span><br>');
+                            }
+                        });
+                    });
+                            });
                 </script>
 
                 <?php submit_button(); ?>

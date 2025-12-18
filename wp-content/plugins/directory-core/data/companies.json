@@ -311,5 +311,145 @@
       "fetched_at": "2025-12-11T12:18:23.375847",
       "is_claimed": false
     }
+  },
+  {
+    "id": "google-ChIJh1OjHuE5W4YR8VRBJKE2jfU",
+    "basics": {
+      "name": "Reliant Plumbing",
+      "tagline": "Rated 4.7/5 by 2844 reviews",
+      "description": "<!-- AIC_Engine Generated Content -->\n<h3>About Reliant Plumbing</h3>\n<p>Professional Plumbers service.</p>\n<p>AI Generated description content would go here...</p>",
+      "headquarters": "3841 Ranch Rd 620 S, Austin, TX 78738, USA",
+      "website": "https://reliantplumbing.com/?utm_source=google&utm_medium=website&utm_campaign=hqgbp&utm_id=beecave-GBP",
+      "phone": "(512) 222-6029"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbers"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-18T14:39:39.271263",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-ChIJO3z3jPnLRIYRdSUTGwQd_dk",
+    "basics": {
+      "name": "Reliant Plumbing - Austin",
+      "tagline": "Rated 4.7/5 by 1420 reviews",
+      "description": "<!-- AIC_Engine Generated Content -->\n<h3>About Reliant Plumbing - Austin</h3>\n<p>Professional Plumbers service.</p>\n<p>AI Generated description content would go here...</p>",
+      "headquarters": "12111 Menchaca Rd, Austin, TX 78748, USA",
+      "website": "https://reliantplumbing.com/plumbing-projects-austin/?utm_source=google&utm_medium=website&utm_campaign=sagbp&utm_id=southaustin-GBP",
+      "phone": "(512) 675-4220"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbers"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-18T14:39:39.271285",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-ChIJx4aR843LRIYRxtI2fjgdyPE",
+    "basics": {
+      "name": "Daniel's Plumbing and Air Conditioning",
+      "tagline": "Rated 4.7/5 by 2728 reviews",
+      "description": "<!-- AIC_Engine Generated Content -->\n<h3>About Daniel's Plumbing and Air Conditioning</h3>\n<p>Professional Plumbers service.</p>\n<p>AI Generated description content would go here...</p>",
+      "headquarters": "2929 Longhorn Blvd #105, Austin, TX 78758, USA",
+      "website": "https://www.danielsaustin.com/?utm_source=GMB&utm_medium=organic&utm_campaign=austin",
+      "phone": "(512) 456-3570"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbers"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-18T14:39:39.271299",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-ChIJbWeSpYzPRIYRTklNGQobWSM",
+    "basics": {
+      "name": "Rooter-Man Plumbing Austin TX",
+      "tagline": "Rated 4.9/5 by 1164 reviews",
+      "description": "<!-- AIC_Engine Generated Content -->\n<h3>About Rooter-Man Plumbing Austin TX</h3>\n<p>Professional Plumbers service.</p>\n<p>AI Generated description content would go here...</p>",
+      "headquarters": "15503 Patrica St, Austin, TX 78728, USA",
+      "website": "http://rooterman.com/austin/",
+      "phone": "(512) 720-7092"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbers"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-18T14:39:39.271310",
+      "is_claimed": false
+    }
+  },
+  {
+    "id": "google-ChIJpxUGhC_LRIYR2g941oH50ow",
+    "basics": {
+      "name": "Beyond Wow Plumbing & Drains",
+      "tagline": "Rated 4.8/5 by 2108 reviews",
+      "description": "<!-- AIC_Engine Generated Content -->\n<h3>About Beyond Wow Plumbing & Drains</h3>\n<p>Professional Plumbers service.</p>\n<p>AI Generated description content would go here...</p>",
+      "headquarters": "3432 Greystone Dr, Austin, TX 78731, USA",
+      "website": "https://beyondwow.com/?utm_source=google&utm_medium=gbp-austin",
+      "phone": "(512) 256-4973"
+    },
+    "pricing": {
+      "model": "Service",
+      "starter_price": "$$"
+    },
+    "media": {
+      "logo": ""
+    },
+    "use_cases": [
+      {
+        "industry": "Plumbers"
+      }
+    ],
+    "meta": {
+      "source": "google_places_v2",
+      "fetched_at": "2025-12-18T14:39:39.271321",
+      "is_claimed": false
+    }
   }
 ]

@@ -5,13 +5,13 @@ Automated WordPress development and deployment pipeline for Digital Ocean. Devel
 ## Features
 
 - **Identical Stack to DO**: Ubuntu 22.04, Apache 2.4.52, PHP 8.3, MySQL 8.0.42
-- **Custom Theme**: Ready-to-develop theme in `wp-content/themes/my-custom-theme/`
-- **Custom Post Types Plugin**: Portfolio and Testimonials CPTs
+- **Directory Core**: Custom plugin for business listings with AI integration
+    - **AIC_Engine**: Generates premium descriptions via LLMs
+    - **Metro Orchestrator**: Autonomous "City -> Profit" loop
+    - **Outreach Manager**: Automated email drafting for business owners
+- **Premium Theme**: Glassmorphism UI, variables-based styling
 - **One-Click Deployment**: Automated migration script to Digital Ocean
 - **Environment-Aware Config**: wp-config.php works on both local and production
-
-- Try SEO Grove: [SEO Grove](https://seogrove.ai/pre-registration)  
-- Join my Skool to say thanks: [My Skool](https://www.skool.com/iss-ai-automation-school-6342)
 
 
 ## Quick Start

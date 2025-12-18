@@ -559,6 +559,215 @@ a:hover {
     }
 }
 
+/* =========================================
+   Homepage Specific Styles
+   ========================================= */
+
+/* Hero Section */
+.hero-section {
+    background: var(--gradient-primary);
+    padding: 6rem 0 8rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://source.unsplash.com/random/1920x1080/?business,city') center/cover;
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+}
+
+.hero-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-search {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(20px);
+}
+
+.hero-search-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-search-input {
+    flex: 1;
+    padding: 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.hero-search-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.hero-search-btn {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+}
+
+/* Section Common */
+.categories-section,
+.locations-section,
+.featured-section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Category Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    display: block;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-xl);
+}
+
+.category-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+}
+
+.category-count {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    background: var(--color-bg-body);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+/* Location Grid */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.location-card {
+    display: block;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.location-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.location-name {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.25rem;
+}
+
+.location-count {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 6rem 0;
+    background: var(--gradient-primary);
+    text-align: center;
+    color: white;
+}
+
+.cta-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-text {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-btn {
+    background: white;
+    color: var(--color-primary);
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    color: var(--color-primary-dark);
+}
+
 /* Scroll Animations */
 .reveal-item {
     opacity: 0;
